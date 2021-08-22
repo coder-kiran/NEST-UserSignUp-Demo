@@ -32,6 +32,8 @@ export class UserService{
         } 
         */
 
+        // converting DTO to Model. So we can get dedicated functions 
+        // like Model.save(),delete()..etc
         const userDataToModel = new this.uModel(gettingUserData);
         console.log(userDataToModel);
         /*

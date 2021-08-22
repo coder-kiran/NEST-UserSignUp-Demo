@@ -1,4 +1,5 @@
 import { Body, Controller, Get,Post } from "@nestjs/common";
+import { getFileInfo } from "prettier";
 import { UserDTO } from "./dto/user-dto.dto";
 import { UserService } from "./user.service";
 
@@ -13,6 +14,6 @@ export class UserController{
 
     @Post()
     putUserDetails(@Body() gettingUserData: UserDTO) {
-        this.userService.putUserDetails(gettingUserData)
+       this.userService.putUserDetails(gettingUserData);
     }
 }
