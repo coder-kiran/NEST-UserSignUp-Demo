@@ -22,4 +22,4 @@ export class UserSchemaClass{
     phoneno: number;
 }
 
-const UserSchema =  SchemaFactory.createForClass(UserSchemaClass);
+export const UserSchema =  SchemaFactory.createForClass(UserSchemaClass);
