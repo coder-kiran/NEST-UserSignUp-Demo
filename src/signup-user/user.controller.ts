@@ -13,7 +13,6 @@ export class UserController{
 
     @Post()
     putUserDetails(@Body() gettingUserData: UserDTO) {
-    console.log(gettingUserData);
-        
+        this.userService.putUserDetails(gettingUserData)
     }
 }
