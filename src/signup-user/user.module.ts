@@ -11,7 +11,7 @@ import { UserService } from "./user.service";
         // forFeature() method helps to configure the module,
         // including defining which models should be
         // registered in the current scope.
-        
+
         // Here I created a model 'UserModel' with shape UserSchema.
         // And also registered
 
@@ -20,5 +20,5 @@ import { UserService } from "./user.service";
     controllers: [UserController],
     providers: [UserService]
 })
-
+ 
 export class UserModule {}
