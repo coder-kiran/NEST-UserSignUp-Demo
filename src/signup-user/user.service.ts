@@ -53,8 +53,7 @@ export class UserService {
 
   // Fetching details of all users in db
   async getAllUsers(limitvalue): Promise<UserSchemaClass[]> {
-    
-    return this.uModel.find({}).select({"password":0}).limit(limitvalue);
+    return this.uModel.find({}).select({ password: 0 }).limit(limitvalue);
   }
 
   // Fetching user by his id
@@ -66,7 +65,14 @@ export class UserService {
   async getUserByConditons(userQuery): Promise<UserDocument[]> {
     // return this.uModel.find({fname:"sunil",lname:"sunil"},{lname:"kumar",password:"dd@#11f"})
     return this.uModel.find({
-      ...userQuery
+      ...userQuery,
+    });
+  }
+
+  async updateUserDetails(userid,querydata) {
+    return this.uModel.findByIdAndUpdate(userid, {
+    ...querydata
+
     });
   }
 }

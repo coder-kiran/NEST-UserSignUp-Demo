@@ -1,4 +1,4 @@
-import { Body, Controller, Get,Param,ParseIntPipe,Post, Query, Req, Res } from "@nestjs/common";
+import { Body, Controller, Get,Param,ParseIntPipe,Post, Put, Query, Req, Res } from "@nestjs/common";
 import { getFileInfo } from "prettier";
 import { identity } from "rxjs";
 import { UserDTO } from "./dto/user-dto.dto";
@@ -38,5 +38,15 @@ export class UserController{
         console.log(userQuery);
         
         return this.userService.getUserByConditons(userQuery);
-    }
+   }
+
+   @Put('update/:id')
+   async updateUserDetails(@Param() updateQuery ,@Query() querydata)  {
+    console.log(updateQuery);
+    let userid = updateQuery.id;
+
+    console.log(querydata);
+    
+    return this.userService.updateUserDetails(userid,querydata)
+   }
 }
