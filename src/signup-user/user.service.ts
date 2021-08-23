@@ -69,7 +69,7 @@ export class UserService {
       lname: 'kumar',
       email: 'sunil@gmail.com',
       password: 'dd@#11f',
-      phoneno: 8086579669,
+      phoneno: 8086579669,  
     });
   }
 }
