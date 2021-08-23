@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { FetchUserDto } from './dto/FetchUsersDto.dto';
 import { UserDocument, UserSchemaClass } from './schemas/user-schema.schema';
 
 @Injectable()
@@ -53,9 +52,9 @@ export class UserService {
   }
 
   // Fetching details of all users in db
-  async getAllUsers(limitvalue): Promise<FetchUserDto[]> {
+  async getAllUsers(limitvalue): Promise<UserSchemaClass[]> {
     
-    return this.uModel.find({}).limit(limitvalue);
+    return this.uModel.find({}).select({"password":0}).limit(limitvalue);
   }
 
   // Fetching user by his id
