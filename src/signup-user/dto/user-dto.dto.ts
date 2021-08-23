@@ -18,7 +18,7 @@ export class UserDTO {
   readonly lname: string;
 
   @IsEmail()
-  readonly email: string;
+  readonly email?: string;
 
   @Length(5, 10)
   @Contains('#' && '*' && '@')

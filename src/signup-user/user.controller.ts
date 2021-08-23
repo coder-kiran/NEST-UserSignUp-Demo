@@ -1,6 +1,7 @@
 import { Body, Controller, Get,Param,ParseIntPipe,Post, Put, Query, Req, Res } from "@nestjs/common";
 import { getFileInfo } from "prettier";
 import { identity } from "rxjs";
+import { UpdateUserDto } from "./dto/UpdateUserDto.dto";
 import { UserDTO } from "./dto/user-dto.dto";
 import { UserDocument, UserSchemaClass } from "./schemas/user-schema.schema";
 import { UserService } from "./user.service";
@@ -15,7 +16,7 @@ export class UserController{
     }
 
     @Post()
-    putUserDetails(@Body() gettingUserData: UserDTO) {
+    putUserDetails(@Body() gettingUserData: UpdateUserDto) {
        this.userService.putUserDetails(gettingUserData);
     }
 
@@ -41,7 +42,7 @@ export class UserController{
    }
 
    @Put('update/:id')
-   async updateUserDetails(@Param() updateQuery ,@Query() querydata)  {
+   async updateUserDetails(@Param() updateQuery ,@Query() querydata: UserDTO)  {
     console.log(updateQuery);
     let userid = updateQuery.id;
 

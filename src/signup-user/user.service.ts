@@ -69,10 +69,9 @@ export class UserService {
     });
   }
 
-  async updateUserDetails(userid,querydata) {
+  async updateUserDetails(userid,querydata): Promise<UserSchemaClass> {
     return this.uModel.findByIdAndUpdate(userid, {
     ...querydata
-
     });
   }
 }
