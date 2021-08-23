@@ -9,9 +9,9 @@ export class UserSchemaClass{
     @Prop()
     fname: string;
 
-    @Prop()
+    @Prop()  
     lname: string;
-
+    
     @Prop()
     email: string;
 

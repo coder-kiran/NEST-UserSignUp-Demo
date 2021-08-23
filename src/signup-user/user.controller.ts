@@ -16,4 +16,6 @@ export class UserController{
     putUserDetails(@Body() gettingUserData: UserDTO) {
        this.userService.putUserDetails(gettingUserData);
     }
+
+    
 }
