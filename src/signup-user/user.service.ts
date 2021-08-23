@@ -53,7 +53,7 @@ export class UserService {
 
   // Fetching details of all users in db
   async getAllUsers(): Promise<UserSchemaClass[]> {
-    return this.uModel.find({});
+    return this.uModel.find({}).limit(5);
   }
 
   // Fetching user by his id
