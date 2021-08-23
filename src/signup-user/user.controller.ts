@@ -1,5 +1,6 @@
-import { Body, Controller, Get,Post } from "@nestjs/common";
+import { Body, Controller, Get,Param,Post, Query, Req, Res } from "@nestjs/common";
 import { getFileInfo } from "prettier";
+import { identity } from "rxjs";
 import { UserDTO } from "./dto/user-dto.dto";
 import { UserSchemaClass } from "./schemas/user-schema.schema";
 import { UserService } from "./user.service";
@@ -21,5 +22,12 @@ export class UserController{
     @Get('userdetails')
     async getAllUsers(): Promise<UserSchemaClass[]> {
         return this.userService.getAllUsers();
+    }
+
+    @Get(':id')
+    async getUserByID(@Param() params): Promise<UserSchemaClass> {
+        console.log(params) // => { id: '612338923988df2f7c47d719' }
+        let userid = params.id;
+        return this.userService.getUserByID(userid);
     }
 }

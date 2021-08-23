@@ -54,4 +54,9 @@ export class UserService{
     async getAllUsers(): Promise<UserSchemaClass[]> {
       return this.uModel.find({});
     }
+
+    // Fetching user by his id
+    async getUserByID(userid): Promise<UserSchemaClass> {
+      return this.uModel.findById(userid)
+    }
 }
