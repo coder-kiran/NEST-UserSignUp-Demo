@@ -48,6 +48,10 @@ export class UserService{
         } 
         */
       return userDataToModel.save();
+    }
 
+    // Fetching details of all users in db
+    async getAllUsers(): Promise<UserSchemaClass[]> {
+      return this.uModel.find({});
     }
 }
