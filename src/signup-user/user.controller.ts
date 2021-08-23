@@ -1,6 +1,7 @@
 import { Body, Controller, Get,Param,ParseIntPipe,Post, Query, Req, Res } from "@nestjs/common";
 import { getFileInfo } from "prettier";
 import { identity } from "rxjs";
+import { FetchUserDto } from "./dto/FetchUsersDto.dto";
 import { UserDTO } from "./dto/user-dto.dto";
 import { UserDocument, UserSchemaClass } from "./schemas/user-schema.schema";
 import { UserService } from "./user.service";
@@ -19,8 +20,8 @@ export class UserController{
        this.userService.putUserDetails(gettingUserData);
     }
 
-    @Get('userdetails')
-    async getAllUsers(@Query('limit',ParseIntPipe) limitvalue): Promise<UserSchemaClass[]> {  
+    @Get('findall')
+    async getAllUsers(@Query('limit',ParseIntPipe) limitvalue): Promise<FetchUserDto[]> {  
         console.log(limitvalue);
         return this.userService.getAllUsers(limitvalue);
 
