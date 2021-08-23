@@ -5,7 +5,7 @@ import {
   IsString,
   Length,
   IsNotEmpty,
-  Contains,
+  Contains,  
 } from 'class-validator';
 
 export class UserDTO {

@@ -16,7 +16,7 @@ export class UserController{
     }
 
     @Post()
-    putUserDetails(@Body() gettingUserData: UpdateUserDto) {
+    putUserDetails(@Body() gettingUserData: UserDTO) {
        this.userService.putUserDetails(gettingUserData);
     }
 
@@ -42,12 +42,10 @@ export class UserController{
    }
 
    @Put('update/:id')
-   async updateUserDetails(@Param() updateQuery ,@Query() querydata: UserDTO)  {
+   async updateUserDetails(@Param() updateQuery ,@Query() querydata: UpdateUserDto)  {
     console.log(updateQuery);
     let userid = updateQuery.id;
-
-    console.log(querydata);
-    
+    console.log(querydata);    
     return this.userService.updateUserDetails(userid,querydata)
    }
 }
