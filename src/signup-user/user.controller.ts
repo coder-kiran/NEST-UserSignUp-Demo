@@ -1,4 +1,4 @@
-import { Body, Controller, Get,Param,Post, Query, Req, Res } from "@nestjs/common";
+import { Body, Controller, Get,Param,ParseIntPipe,Post, Query, Req, Res } from "@nestjs/common";
 import { getFileInfo } from "prettier";
 import { identity } from "rxjs";
 import { UserDTO } from "./dto/user-dto.dto";
@@ -20,8 +20,10 @@ export class UserController{
     }
 
     @Get('userdetails')
-    async getAllUsers(): Promise<UserSchemaClass[]> {
-        return this.userService.getAllUsers();
+    async getAllUsers(@Query('limit',ParseIntPipe) limitvalue): Promise<UserSchemaClass[]> {  
+        console.log(limitvalue);
+        return this.userService.getAllUsers(limitvalue);
+
     }
 
     @Get('findbyid/:id')
