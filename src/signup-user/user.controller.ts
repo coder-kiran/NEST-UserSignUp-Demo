@@ -32,7 +32,9 @@ export class UserController{
     }
 
     @Get('findby')
-    async getUserByConditons(): Promise<UserDocument[]> {
-        return this.userService.getUserByConditons();
+    async getUserByConditons(@Query() userQuery): Promise<UserDocument[]> {
+        console.log(userQuery);
+        
+        return this.userService.getUserByConditons(userQuery);
     }
 }

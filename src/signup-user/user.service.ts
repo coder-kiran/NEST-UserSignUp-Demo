@@ -62,14 +62,10 @@ export class UserService {
   }
 
   // Fetch user by certain conditions
-  async getUserByConditons(): Promise<UserDocument[]> {
+  async getUserByConditons(userQuery): Promise<UserDocument[]> {
     // return this.uModel.find({fname:"sunil",lname:"sunil"},{lname:"kumar",password:"dd@#11f"})
     return this.uModel.find({
-      fname: 'sunil',
-      lname: 'kumar',
-      email: 'sunil@gmail.com',
-      password: 'dd@#11f',
-      phoneno: 8086579669,  
+      ...userQuery
     });
   }
 }
